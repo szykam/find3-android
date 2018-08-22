@@ -15,12 +15,26 @@ android {
         versionCode versions.app.code
         versionName versions.app.name
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+        buildConfigField "String", "DEFAULT_URL", '"https://cloud.internalpositioning.com"'
     }
     buildTypes {
         release {
             minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
+    }
+
+    dataBinding.enabled true
+
+    kotlin {
+        experimental {
+            coroutines "enable"
+        }
+    }
+
+    testOptions {
+        unitTests.returnDefaultValues = true
     }
 }
 

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="distance_xxs">2dp</dimen>
+    <dimen name="distance_xs">4dp</dimen>
+    <dimen name="distance_s">8dp</dimen>
+    <dimen name="distance_m">16dp</dimen>
+    <dimen name="distance_l">24dp</dimen>
+    <dimen name="distance_xl">32dp</dimen>
+
+    <dimen name="font_xxs">10sp</dimen>
+    <dimen name="font_xs">12sp</dimen>
+    <dimen name="font_s">14sp</dimen>
+    <dimen name="font_m">16sp</dimen>
+    <dimen name="font_l">20sp</dimen>
+    <dimen name="font_xl">24sp</dimen>
+    <dimen name="font_xxl">28sp</dimen>
+</resources>

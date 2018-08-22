@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">Find3</string>
+
+    <!-- Welcome -->
+    <string name="welcome_family_hint">Family</string>
+    <string name="welcome_device_hint">Device</string>
+    <string name="welcome_location_hint">Location (optional)</string>
+    <string name="welcome_server_hint">Server</string>
+    <string name="welcome_start">Start</string>
 </resources>

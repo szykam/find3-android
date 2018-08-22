@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="pl.skamycki.find3.welcome.WelcomeViewModel" />
+    </data>
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/welcome_family_layout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.3">
+
+            <android.support.design.widget.TextInputEditText
+                android:id="@+id/welcome_family"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/welcome_family_hint"
+                android:text="@={viewModel.family}" />
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/welcome_device_layout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/distance_m"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/welcome_family_layout">
+
+            <android.support.design.widget.TextInputEditText
+                android:id="@+id/welcome_device"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/welcome_device_hint"
+                android:text="@={viewModel.device}" />
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/welcome_server_layout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/welcome_device_layout">
+
+            <android.support.design.widget.TextInputEditText
+                android:id="@+id/welcome_server"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/welcome_server_hint"
+                android:text="@={viewModel.server}" />
+        </android.support.design.widget.TextInputLayout>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/welcome_start"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/welcome_server_layout"
+            android:enabled="@{viewModel.continueButtonEnabled}"/>
+
+
+    </android.support.constraint.ConstraintLayout>
+</layout>
+
