@@ -2,32 +2,70 @@ apply plugin: 'com.android.application'
 
 apply plugin: 'kotlin-android'
 
+apply plugin: 'kotlin-kapt'
+
 apply plugin: 'kotlin-android-extensions'
 
 android {
     compileSdkVersion 28
     defaultConfig {
         applicationId "pl.skamycki.find3"
-        minSdkVersion 21
-        targetSdkVersion 28
-        versionCode 1
-        versionName "1.0"
+        minSdkVersion versions.androidSdk.min
+        targetSdkVersion versions.androidSdk.target
+        versionCode versions.app.code
+        versionName versions.app.name
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
         release {
-            minifyEnabled false
+            minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
 }
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation"org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-    implementation 'com.android.support:appcompat-v7:28.0.0-rc01'
-    implementation 'com.android.support.constraint:constraint-layout:1.1.2'
-    testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'com.android.support.test:runner:1.0.2'
-    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+    implementation libraries.app.annotations.jsr250
+    implementation libraries.app.annotations.jsr330
+
+    implementation libraries.app.kotlin.stdlib
+
+    implementation libraries.app.support.appcompat
+    implementation libraries.app.support.cardView
+    implementation libraries.app.support.design
+    implementation libraries.app.support.constraint
+
+    kapt libraries.app.databinding.compiler
+    implementation libraries.app.arch.lifecycle.extensions
+    implementation libraries.app.arch.navigation.core
+    implementation libraries.app.arch.navigation.fragment
+
+    implementation libraries.app.dagger.core
+    implementation libraries.app.dagger.android.support
+    kapt libraries.app.dagger.compiler
+    kapt libraries.app.dagger.android.processor
+
+    implementation libraries.app.okhttp.core
+    implementation libraries.app.okhttp.logger
+    implementation libraries.app.retrofit
+    implementation libraries.app.moshi.core
+    implementation libraries.app.moshi.kotlin
+    implementation libraries.app.moshi.converter
+    implementation libraries.app.moshi.adapters
+    kapt libraries.app.moshi.codegen
+
+    implementation libraries.app.coroutines.core
+    implementation libraries.app.coroutines.android
+
+    testImplementation libraries.test.junit
+    testImplementation libraries.test.arch
+    testImplementation libraries.test.mockitoKotlin1_1
+
+    androidTestImplementation libraries.test.mockitoKotlin
+    androidTestImplementation libraries.test.espresso.runner
+    androidTestImplementation libraries.test.espresso.rules
+    androidTestImplementation libraries.test.espresso.core
+    androidTestImplementation libraries.test.mockwebserver
+    androidTestImplementation libraries.test.dexMaker
+    kaptAndroidTest libraries.app.dagger.compiler
 }

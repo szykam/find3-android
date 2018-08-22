@@ -1,17 +1,15 @@
-// Top-level build file where you can add configuration options common to all sub-projects/modules.
+apply plugin: 'com.github.ben-manes.versions'
 
 buildscript {
-    ext.kotlin_version = '1.2.61'
+    apply from: 'gradle/dependencies.gradle'
     repositories {
         google()
         jcenter()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.1.4'
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
-
-        // NOTE: Do not place your application dependencies here; they belong
-        // in the individual module build.gradle files
+        classpath libraries.gradlePlugins.android
+        classpath libraries.gradlePlugins.kotlin
+        classpath libraries.gradlePlugins.depMgmt
     }
 }
 
@@ -22,6 +20,23 @@ allprojects {
     }
 }
 
+dependencyUpdates.resolutionStrategy = {
+    ComponentSelection { rules ->
+        rules.all { ComponentSelection selection ->
+            boolean rejected = ['alpha', 'beta', 'rc'].any { qualifier ->
+                selection.candidate.version ==~ /(?i).*[.-]${qualifier}[.\d-]*/
+            }
+            if (rejected) {
+                selection.reject('Release candidate')
+            }
+        }
+    }
+}
+
 task clean(type: Delete) {
     delete rootProject.buildDir
+}
+
+task wrapper(type: Wrapper) {
+    distributionUrl = "https://services.gradle.org/distributions/gradle-4.9-all.zip"
 }
