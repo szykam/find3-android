@@ -7,7 +7,7 @@ apply plugin: 'kotlin-kapt'
 apply plugin: 'kotlin-android-extensions'
 
 android {
-    compileSdkVersion 28
+    compileSdkVersion versions.androidSdk.compile
     defaultConfig {
         applicationId "pl.skamycki.find3"
         minSdkVersion versions.androidSdk.min
@@ -70,6 +70,10 @@ dependencies {
 
     implementation libraries.app.coroutines.core
     implementation libraries.app.coroutines.android
+
+    debugImplementation libraries.app.leakCanary.android
+    debugImplementation libraries.app.leakCanary.fragment
+    releaseImplementation libraries.app.leakCanary.no_op
 
     testImplementation libraries.test.junit
     testImplementation libraries.test.arch

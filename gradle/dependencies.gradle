@@ -32,6 +32,7 @@ ext {
             moshiConverter  : '2.4.0',
             crashlytics     : '2.9.4',
             navigation      : "1.0.0-alpha04",
+            leakCanary      : "1.6.1",
 
             //test
             junit           : '4.12',
@@ -99,7 +100,7 @@ ext {
                             core     : "com.squareup.moshi:moshi:$versions.moshi",
                             kotlin   : "com.squareup.moshi:moshi-kotlin:$versions.moshi",
                             codegen  : "com.squareup.moshi:moshi-kotlin-codegen:$versions.moshi",
-                            adapters  : "com.squareup.moshi:moshi-adapters:$versions.moshi"
+                            adapters : "com.squareup.moshi:moshi-adapters:$versions.moshi"
 
                     ],
 
@@ -108,9 +109,14 @@ ext {
                             logger: "com.squareup.okhttp3:logging-interceptor:$versions.okhttp"
                     ],
 
-                    retrofit   : "com.squareup.retrofit2:retrofit:$versions.retrofit"
-            ],
+                    retrofit   : "com.squareup.retrofit2:retrofit:$versions.retrofit",
 
+                    leakCanary : [
+                            android : "com.squareup.leakcanary:leakcanary-android:$versions.leakCanary",
+                            no_op   : "com.squareup.leakcanary:leakcanary-android-no-op:$versions.leakCanary",
+                            fragment: "com.squareup.leakcanary:leakcanary-support-fragment:$versions.leakCanary"
+                    ]
+            ],
             test         : [
                     junit           : "junit:junit:$versions.junit",
                     arch            : "android.arch.core:core-testing:$versions.arch",
