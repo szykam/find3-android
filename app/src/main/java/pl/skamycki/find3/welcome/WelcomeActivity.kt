@@ -34,5 +34,6 @@ class WelcomeActivity : BaseActivity() {
 
         binding.setLifecycleOwner(this)
         binding.viewModel = viewModel
+        binding.interactor = interactor
     }
 }
