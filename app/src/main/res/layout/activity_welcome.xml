@@ -32,6 +32,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/welcome_family_hint"
+                android:imeOptions="actionNext"
+                android:inputType="text"
                 android:text="@={viewModel.family}" />
         </android.support.design.widget.TextInputLayout>
 
@@ -49,6 +51,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/welcome_device_hint"
+                android:imeOptions="actionNext"
+                android:inputType="text"
                 android:text="@={viewModel.device}" />
         </android.support.design.widget.TextInputLayout>
 
@@ -65,6 +69,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/welcome_server_hint"
+                android:imeOptions="actionDone"
+                android:inputType="textUri"
+                android:onEditorActionListener="@{(view, actionId, keyEvent) -> interactor.onKeyboardAction(actionId, viewModel.family, viewModel.device, viewModel.server)}"
                 android:text="@={viewModel.server}" />
         </android.support.design.widget.TextInputLayout>
 
