@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/bottomNavFragmentLearn"
+        android:icon="@drawable/ic_my_location_black_24dp"
+        android:title="@string/learn_title" />
+    <item
+        android:id="@+id/bottomNavFragmentTrack"
+        android:icon="@drawable/ic_location_on_black_24dp"
+        android:title="@string/track_title" />
+    <item
+        android:id="@+id/bottomNavFragmentSettings"
+        android:icon="@drawable/ic_settings_black_24dp"
+        android:title="@string/settings_title" />
+</menu>

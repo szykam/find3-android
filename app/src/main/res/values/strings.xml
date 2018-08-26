@@ -7,4 +7,13 @@
     <string name="welcome_location_hint">Location (optional)</string>
     <string name="welcome_server_hint">Server</string>
     <string name="welcome_start">Start</string>
+
+    <!-- Learn -->
+    <string name="learn_title">Learn</string>
+
+    <!-- Track -->
+    <string name="track_title">Track</string>
+
+    <!-- Settings -->
+    <string name="settings_title">Settings</string>
 </resources>
