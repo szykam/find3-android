@@ -39,7 +39,9 @@ ext {
             mockitoKotlin   : '1.6.0',
             androidTest     : '1.0.2',
             espresso        : '3.0.2',
-            dexMaker        : '2.16.0'
+            dexMaker        : '2.16.0',
+            dexOpener       : '1.0.2',
+            jsonPath        : '2.4.0'
     ]
 
     libraries = [
@@ -131,7 +133,9 @@ ext {
                     ],
 
                     mockwebserver   : "com.squareup.okhttp3:mockwebserver:$versions.okhttp",
-                    dexMaker        : "com.linkedin.dexmaker:dexmaker-mockito:$versions.dexMaker"
+                    dexMaker        : "com.linkedin.dexmaker:dexmaker-mockito:$versions.dexMaker",
+                    dexOpener       : "com.github.tmurakami:dexopener:$versions.dexOpener",
+                    jsonPath        : "com.jayway.jsonpath:json-path:$versions.jsonPath"
             ]
     ]
 }

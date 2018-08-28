@@ -14,7 +14,7 @@ android {
         targetSdkVersion versions.androidSdk.target
         versionCode versions.app.code
         versionName versions.app.name
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner "pl.skamycki.find3.test.Find3TestRunner"
 
         buildConfigField "String", "DEFAULT_URL", '"https://cloud.internalpositioning.com"'
     }
@@ -85,5 +85,7 @@ dependencies {
     androidTestImplementation libraries.test.espresso.core
     androidTestImplementation libraries.test.mockwebserver
     androidTestImplementation libraries.test.dexMaker
+    androidTestImplementation libraries.test.dexOpener
+    androidTestImplementation libraries.test.jsonPath
     kaptAndroidTest libraries.app.dagger.compiler
 }

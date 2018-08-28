@@ -21,6 +21,12 @@
     @com.squareup.moshi.ToJson <methods>;
 }
 
+-keep class **JsonAdapter {
+    <init>(...);
+    <fields>;
+}
+-keepnames @com.squareup.moshi.JsonClass class *
+
 # Dagger
 -dontwarn com.google.errorprone.annotations.**
 
